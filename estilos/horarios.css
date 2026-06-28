@@ -1,0 +1,54 @@
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.hazard-stripe {
+    background-image: repeating-linear-gradient(
+        -45deg,
+        #00457c,
+        #00457c 10px,
+        #1c1b1b 10px,
+        #1c1b1b 20px
+    );
+}
+
+.offset-shadow {
+    box-shadow: 2px 2px 0px 0px #005fae;
+}
+
+.offset-shadow-hover:hover {
+    box-shadow: 4px 4px 0px 0px #005fae;
+    transform: translate(-2px, -2px);
+}
+
+.mobile-menu-icon {
+    font-size: 32px;
+}
+
+.header-accent-bar {
+    background: #00457c;
+}
+
+.hazard-stripe-header {
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgb(0, 69, 124),
+        rgb(0, 69, 124) 10px,
+        rgb(0, 95, 174) 10px,
+        rgb(0, 95, 174) 20px
+    );
+}
+
+.icon-outline {
+    font-variation-settings: 'FILL' 0;
+}

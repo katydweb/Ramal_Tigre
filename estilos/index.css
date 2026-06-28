@@ -1,0 +1,21 @@
+.hazard-stripe {
+    background: repeating-linear-gradient(
+        45deg,
+        #00457c,
+        #00457c 10px,
+        #a2c9ff 10px,
+        #a2c9ff 20px
+    );
+}
+
+.icon-outline {
+    font-variation-settings: 'FILL' 0;
+}
+
+.hero-overlay {
+    background: #2f3033;
+}
+
+.tigre-map-iframe {
+    border: 0;
+}

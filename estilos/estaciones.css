@@ -1,0 +1,56 @@
+body {
+  background-color: #ffffff;
+  color: #1c1b1b;
+}
+
+.accent-bar {
+  width: 8px;
+  background-color: #005fae;
+}
+
+.stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #00457c,
+    #00457c 10px,
+    #005fae 10px,
+    #005fae 20px
+  );
+}
+
+.station-card {
+  box-shadow: 4px 4px 0px 0px #00457c;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.station-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #00457c;
+}
+
+.badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+.context-badge {
+  min-height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.accessibility-icon {
+  align-self: flex-start;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.icon-outline {
+  font-variation-settings: 'FILL' 0;
+}
+
+.tigre-map-iframe {
+  border: 0;
+}
