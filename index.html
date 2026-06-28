@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Línea Mitre - Ramal Tigre</title>
+    <!-- Recursos visuales (Tailwind, tipografías e iconos) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="estilos/index.css" rel="stylesheet">
+
+    <!-- Tema de Diseño -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c2c6d1",
+                        "on-primary-container": "#85b4f1",
+                        "secondary-fixed": "#d4e3ff",
+                        "on-surface-variant": "#424750",
+                        "primary": "#002e56",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#a8b2bb",
+                        "on-background": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#004785",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#3e484f",
+                        "secondary-fixed-dim": "#a5c8ff",
+                        "tertiary": "#252f35",
+                        "surface-container-high": "#eae7e7",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-container": "#00457c",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-fixed-variant": "#07487f",
+                        "on-primary-fixed": "#001c38",
+                        "primary-fixed-dim": "#a2c9ff",
+                        "on-secondary-container": "#003666",
+                        "surface-tint": "#2d6099",
+                        "tertiary-container": "#3b454c",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0eded",
+                        "on-tertiary-fixed": "#131d23",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#ffffff",
+                        "secondary": "#005fae",
+                        "tertiary-fixed-dim": "#bec8d0",
+                        "secondary-container": "#51a0ff",
+                        "outline": "#727781",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed": "#dae4ed",
+                        "surface-bright": "#ffffff",
+                        "inverse-primary": "#a2c9ff",
+                        "primary-fixed": "#d3e4ff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-fixed": "#001c3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "48px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "label-bold": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-bold": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "display-lg": ["32px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-white text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="w-full bg-surface border-b-2 border-outline z-50 sticky top-0">
+        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+            <!-- Logo y Ramal -->
+            <div class="flex items-center gap-3 shrink-0">
+                <img src="img/Logo/Logo.png" alt="Logo" class="h-12 w-auto md:h-14">
+                <div class="font-display-lg text-display-lg text-primary tracking-tighter uppercase font-black">
+                    MITRE TIGRE
+                </div>
+            </div>
+
+            <!-- Menú de navegación -->
+            <nav class="hidden lg:flex gap-gutter items-center h-full">
+
+                <a class="h-full flex items-center text-primary border-b-4 border-primary pb-1 font-label-bold text-label-bold uppercase translate-y-[1px] transition-transform" href="index.html">
+                    INICIO
+                </a>
+                <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="estaciones.html">
+                    ESTACIONES
+                </a>
+                <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="horarios.html">
+                    HORARIOS
+                </a>
+                <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="contacto.html">
+                    CONTACTO
+                </a>
+
+            </nav>
+
+            <!-- Botónhacia el mapa en vivo -->
+            <a class="hidden lg:block bg-primary-container text-on-primary font-label-bold text-label-bold uppercase px-stack-lg py-stack-sm border-2 border-primary hover:bg-primary transition-colors" href="mapa.html">
+                MAPA EN VIVO
+            </a>
+
+            <!-- Botón de menú para vista móvil -->
+            <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden text-primary p-stack-sm" type="button">
+                <span class="material-symbols-outlined icon-outline">menu</span>
+            </button>
+        </div>
+
+        <!-- Menú de navegación para dispositivos móviles -->
+        <nav id="mobile-menu" class="hidden lg:hidden border-t-2 border-outline bg-surface px-margin-mobile py-stack-sm">
+            <div class="flex flex-col gap-2">
+                <a class="px-3 py-2 border-2 border-primary bg-primary-container text-on-primary-container font-label-bold text-label-bold uppercase" href="index.html">INICIO</a>
+                <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="estaciones.html">ESTACIONES</a>
+                <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="horarios.html">HORARIOS</a>
+                <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="contacto.html">CONTACTO</a>
+                <a class="mt-1 px-3 py-2 border-2 border-primary bg-primary-container text-on-primary font-label-bold text-label-bold uppercase text-center" href="mapa.html">MAPA EN VIVO</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg md:py-margin-desktop flex flex-col gap-gutter">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+            <div class="md:col-span-8 flex flex-col h-full relative">
+                <!-- Imagen principal del ramal -->
+                <div class="relative w-full border-2 border-outline border-l-[6px] border-l-primary bg-surface overflow-hidden aspect-video md:aspect-[1.6]">
+                    <img alt="Tren Index" class="w-full h-full object-cover" src="img/inicio/Inicio_tren.png">
+
+                    <!-- Cuadro de texto sobre la imagen principal -->
+                    <div class="absolute -left-2 bottom-0 translate-y-4 md:translate-y-6 hero-overlay border-2 border-outline border-l-[6px] border-l-primary pt-3 pb-4 px-4 md:pt-5 md:pb-6 md:px-6 w-[88%] sm:w-[84%] md:w-1/2 max-w-[600px] flex flex-col gap-0">
+                        <span class="font-label-bold text-label-bold text-inverse-primary uppercase text-base md:text-lg">RAMAL TIGRE</span>
+                        <span class="font-headline-sm text-sm sm:text-base md:text-lg lg:text-xl text-inverse-on-surface uppercase tracking-wide leading-tight max-w-full">CONEXIÓN METROPOLITANA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado del servicio -->
+            <div class="md:col-span-4 flex flex-col gap-gutter w-full">
+    
+                <div class="flex flex-col shadow-[4px_4px_0px_#727781] bg-white border-2 border-outline">
+                    <div class="border-2 border-outline p-stack-lg flex flex-col gap-stack-md">
+                        <h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight">ESTADO DEL SERVICIO</h2>
+
+                        <!-- Estado actual y condición del servicio -->
+                        <div class="flex justify-between items-center w-full">
+                            <span class="font-body-md text-body-md text-on-surface uppercase tracking-wider">ESTADO ACTUAL</span>
+                            <span class="bg-primary-container text-on-primary-container border-2 border-outline px-stack-sm py-unit font-label-bold text-label-bold uppercase">NORMAL</span>
+                        </div>
+
+                        <!-- Texto Resumen operativo -->
+                        <p class="font-body-md text-body-md text-secondary">
+                            Los trenes circulan a horario entre Retiro y Tigre en ambas direcciones.
+                        </p>
+
+                        <hr class="border-outline my-stack-sm border-t-2">
+
+                        <!-- Próximas salidas -->
+                        <div class="flex flex-col gap-stack-sm">
+                            <div class="flex justify-between items-center w-full">
+                                <span class="font-body-md text-body-md text-on-surface uppercase">PRÓXIMO A RETIRO</span>
+                                <span id="next-retiro-time" class="font-body-md text-body-md text-on-surface font-bold">14:05</span>
+                            </div>
+                            <div class="flex justify-between items-center w-full">
+                                <span class="font-body-md text-body-md text-on-surface uppercase">PRÓXIMO A TIGRE</span>
+                                <span id="next-tigre-time" class="font-body-md text-body-md text-on-surface font-bold">14:12</span>
+                            </div>
+                        </div>
+
+                        <hr class="border-outline my-stack-sm border-t-2">
+
+                        <!-- Sección: Botón para refrescar horarios mostrados -->
+                        <button type="button" id="status-update-button" class="w-full flex items-center justify-center gap-stack-sm border-2 border-outline bg-transparent py-stack-sm hover:bg-inverse-surface hover:text-inverse-on-surface transition-colors duration-200 group">
+                            <span class="material-symbols-outlined icon-outline text-[18px] group-hover:text-inverse-primary transition-colors">refresh</span>
+                            <span class="font-label-bold text-label-bold uppercase">ACTUALIZAR</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjetas de Tarifas y SUBE -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md w-full">
+                    <!-- Botón para desplegar cuadro tarifario -->
+                    <button type="button" id="tariff-button" class="flex flex-col items-center justify-center gap-stack-sm bg-inverse-surface text-inverse-on-surface p-stack-lg border-2 border-outline shadow-[2px_2px_0px_#727781] hover:bg-surface hover:text-on-surface hover:border-on-surface transition-all active:translate-y-[2px] active:translate-x-[2px] active:shadow-none group">
+                        <span class="material-symbols-outlined icon-outline text-[32px] text-inverse-primary group-hover:text-primary transition-colors">confirmation_number</span>
+                        <span id="tariff-button-label" class="font-label-bold text-label-bold uppercase tracking-wider">TARIFAS</span>
+                    </button>
+
+                    <!-- Botón para desplegar información SUBE -->
+                    <button type="button" id="route-button" class="flex flex-col items-center justify-center gap-stack-sm bg-inverse-surface text-inverse-on-surface p-stack-lg border-2 border-outline shadow-[2px_2px_0px_#727781] hover:bg-surface hover:text-on-surface hover:border-on-surface transition-all active:translate-y-[2px] active:translate-x-[2px] active:shadow-none group">
+                        <span class="material-symbols-outlined icon-outline text-[32px] text-inverse-primary group-hover:text-primary transition-colors">credit_card</span>
+                        <span id="route-button-label" class="font-label-bold text-label-bold uppercase tracking-wider">SUBE</span>
+                    </button>
+                </div>
+
+                <!-- Desplegable de Tarifas por tramo -->
+                <div id="tariff-panel" class="hidden mt-6 rounded-2xl overflow-hidden border-2 border-outline bg-white shadow-[4px_4px_0px_#727781]">
+                    <div class="p-6">
+                        <h3 class="font-headline-sm text-headline-sm font-black uppercase text-primary mb-4">Cuadro tarifario</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-surface-container">
+                                        <th class="px-4 py-3 font-label-bold text-label-bold uppercase tracking-wider border-b-2 border-outline">Trayecto</th>
+                                        <th class="px-4 py-3 font-label-bold text-label-bold uppercase tracking-wider border-b-2 border-outline">Tarifa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd:bg-surface/70 even:bg-white">
+                                        <td class="px-4 py-3 border-b border-outline">Retiro – Tigre</td>
+                                        <td class="px-4 py-3 border-b border-outline">$150</td>
+                                    </tr>
+                                    <tr class="odd:bg-surface/70 even:bg-white">
+                                        <td class="px-4 py-3 border-b border-outline">Olivos – Tigre</td>
+                                        <td class="px-4 py-3 border-b border-outline">$120</td>
+                                    </tr>
+                                    <tr class="odd:bg-surface/70 even:bg-white">
+                                        <td class="px-4 py-3 border-b border-outline">San Isidro – Tigre</td>
+                                        <td class="px-4 py-3 border-b border-outline">$90</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt-4 text-sm text-on-surface-variant">Tarifas aproximadas para viajes urbanos. Verifica los valores actualizados en el sitio oficial antes de viajar.</p>
+                    </div>
+                </div>
+
+                <!-- Desplegable con información de recarga SUBE -->
+                <div id="route-panel" class="hidden mt-6 rounded-2xl overflow-hidden border-2 border-outline bg-white shadow-[4px_4px_0px_#727781]">
+                    <div class="p-6">
+                        <h3 class="font-headline-sm text-headline-sm font-black uppercase text-primary mb-4">Recarga SUBE</h3>
+                        <div class="grid gap-4 md:grid-cols-2">
+                            <div class="rounded-2xl bg-surface p-5 border border-surface-container">
+                                <h4 class="font-label-bold text-label-bold uppercase mb-3">Terminales cercanas</h4>
+                                <ul class="list-disc list-inside space-y-2 text-body-md text-on-surface-variant">
+                                    <li><strong>Estación Tigre</strong> – terminal automática y kiosco dentro del hall.</li>
+                                    <li><strong>Estación San Fernando</strong> – terminal de recarga junto a la boletería.</li>
+                                    <li><strong>Estación San Isidro</strong> – recarga disponible en comercio adherido cerca del ingreso.</li>
+                                </ul>
+                            </div>
+                            <div class="rounded-2xl bg-surface p-5 border border-surface-container">
+                                <h4 class="font-label-bold text-label-bold uppercase mb-3">Consejos rápidos</h4>
+                                <ul class="list-disc list-inside space-y-2 text-body-md text-on-surface-variant">
+                                    <li>Llevá tu tarjeta SUBE física o la app oficial a mano.</li>
+                                    <li>Recargá con saldo extra para el viaje y el traslado.</li>
+                                    <li>Recordá que el descuento por transbordo se aplica automáticamente.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="inline-flex items-center justify-center mt-6 px-6 py-3 bg-primary text-on-primary font-label-bold text-label-bold uppercase rounded-full hover:bg-primary-container transition-colors" href="https://www.argentina.gob.ar/transporte/sube" target="_blank" rel="noopener noreferrer">
+                            VER MÁS SOBRE SUBE
+                        </a>
+                        <p class="mt-4 text-sm text-on-surface-variant">Información útil sobre terminales de recarga cercanas para viajar en el Ramal Tigre con tu tarjeta SUBE.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminal Tigre -->
+        <section class="w-full mt-gutter">
+            <article class="bg-white border-2 border-primary-container flex flex-col-reverse md:flex-row overflow-hidden border-l-[6px] border-l-secondary relative shadow-[4px_4px_0px_#727781]">
+                <!-- Descripción Terminal y botón de mapa de la ciudad -->
+                <div class="p-6 md:p-12 flex flex-col justify-between w-full md:w-1/3 border-r-0 md:border-r-2 border-outline-variant">
+                    <div class="mb-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h2 class="text-4xl md:text-5xl font-black text-primary uppercase tracking-tighter">TIGRE</h2>
+                        </div>
+                        <p class="text-on-surface-variant text-body-lg font-body-lg leading-relaxed">
+                            Estación Terminal Norte. Portal de acceso al Delta del Paraná, Puerto de Frutos y servicios fluviales.
+                        </p>
+                    </div>
+
+                    <button type="button" id="tigre-map-button" class="bg-primary text-on-primary px-6 py-4 font-label-bold text-label-bold uppercase w-full text-center hover:bg-primary-container transition-colors shadow-[2px_2px_0px_#727781] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none">
+                        VER MAPA DE LA CIUDAD
+                    </button>
+
+                    <div id="tigre-city-map" class="hidden mt-6 rounded-2xl overflow-hidden border-2 border-outline shadow-[4px_4px_0px_#727781]">
+                        <iframe class="w-full h-72 md:h-96 tigre-map-iframe" src="https://www.openstreetmap.org/export/embed.html?bbox=-58.5886%2C-34.4362%2C-58.5138%2C-34.3851&amp;layer=mapnik&amp;marker=-34.4090%2C-58.5562" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="bg-surface p-4 text-sm text-on-surface-variant">
+                            Mapa de la ciudad de Tigre, Provincia de Buenos Aires. Arrastra y haz zoom para explorar.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagen panorámica de Tigre -->
+                <div class="w-full md:w-2/3 h-64 md:h-[500px] relative">
+                    <img alt="Terminal Tigre - Vista panorámica" class="w-full h-full object-cover" src="img/inicio/Inicio_vista_panoramica.png">
+                    <span class="absolute top-4 right-4 bg-secondary text-white px-3 py-1.5 font-label-bold text-label-bold uppercase border-2 border-primary-container">Terminal Norte</span>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-primary border-t-2 border-outline mt-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-stack-lg gap-gutter max-w-container-max mx-auto">
+            <!-- Ramal -->
+            <div class="font-headline-sm text-headline-sm font-black text-white uppercase">
+                RAMAL RETIRO - TIGRE
+            </div>
+
+            <div class="flex flex-col items-center md:items-end gap-stack-sm">
+                <!-- Sección: Área reservada para otros enlaces institucionales -->
+                <nav class="flex flex-wrap justify-center md:justify-end gap-stack-md md:gap-gutter">
+                </nav>
+
+                <!-- Copyright -->
+                <div class="font-label-sm text-label-sm text-white/80">
+                    © Central de Transporte - GRUPO7 - Actividad Educativa
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sección JavaSript de la página de inicio -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mapButton = document.getElementById('tigre-map-button');
+            const mapPanel = document.getElementById('tigre-city-map');
+            const tariffButton = document.getElementById('tariff-button');
+            const tariffPanel = document.getElementById('tariff-panel');
+
+            // Abre y cierra el menú móvil principal.
+            if (mobileMenuButton && mobileMenu) {
+                const mobileMenuIcon = mobileMenuButton.querySelector('.material-symbols-outlined');
+
+                mobileMenuButton.addEventListener('click', function () {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+
+                    if (mobileMenuIcon) {
+                        mobileMenuIcon.textContent = isHidden ? 'close' : 'menu';
+                    }
+                });
+
+                mobileMenu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.textContent = 'menu';
+                        }
+                    });
+                });
+            }
+
+            // Mostrar u ocultar el mapa de la ciudad de Tigre.
+            if (mapButton && mapPanel) {
+                mapButton.addEventListener('click', function () {
+                    const isHidden = mapPanel.classList.contains('hidden');
+                    mapPanel.classList.toggle('hidden');
+                    mapButton.textContent = isHidden ? 'OCULTAR MAPA DE LA CIUDAD' : 'VER MAPA DE LA CIUDAD';
+                });
+            }
+
+            const tariffButtonLabel = document.getElementById('tariff-button-label');
+            const statusUpdateButton = document.getElementById('status-update-button');
+            const nextRetiroTime = document.getElementById('next-retiro-time');
+            const nextTigreTime = document.getElementById('next-tigre-time');
+
+            // Mostrar u ocultar la tabla de tarifas.
+            if (tariffButton && tariffPanel && tariffButtonLabel) {
+                tariffButton.addEventListener('click', function () {
+                    const isHidden = tariffPanel.classList.contains('hidden');
+                    tariffPanel.classList.toggle('hidden');
+                    tariffButtonLabel.textContent = isHidden ? 'OCULTAR TARIFAS' : 'TARIFAS';
+                });
+            }
+
+            // Simular actualización de próximos trenes en la tarjeta de estado.
+            if (statusUpdateButton && nextRetiroTime && nextTigreTime) {
+                statusUpdateButton.addEventListener('click', function () {
+                    const currentRetiro = nextRetiroTime.textContent.trim();
+                    const currentTigre = nextTigreTime.textContent.trim();
+                    if (currentRetiro === '14:05') {
+                        nextRetiroTime.textContent = '14:18';
+                        nextTigreTime.textContent = '14:25';
+                    } else {
+                        nextRetiroTime.textContent = '14:05';
+                        nextTigreTime.textContent = '14:12';
+                    }
+                });
+            }
+
+            const routeButton = document.getElementById('route-button');
+            const routeButtonLabel = document.getElementById('route-button-label');
+            const routePanel = document.getElementById('route-panel');
+
+            // Mostrar u ocultar información de recarga SUBE y enfocar el panel.
+            if (routeButton && routePanel && routeButtonLabel) {
+                routeButton.addEventListener('click', function () {
+                    const isHidden = routePanel.classList.contains('hidden');
+                    routePanel.classList.toggle('hidden');
+                    routeButtonLabel.textContent = isHidden ? 'OCULTAR SUBE' : 'SUBE';
+                    if (!isHidden) {
+                        routePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

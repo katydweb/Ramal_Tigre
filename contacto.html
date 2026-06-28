@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>MITRE TIGRE - Contacto</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+        <!-- Tema de Diseño -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            body: ["Montserrat", "sans-serif"]
+                        }
+                    }
+                }
+            };
+        </script>
+    </head>
+    <body class="min-h-screen bg-white text-[#1c1b1b] font-body flex flex-col antialiased">
+        <!-- Header -->
+        <header class="w-full bg-white border-b-2 border-[#727781] sticky top-0 z-50">
+            <div class="max-w-[1280px] mx-auto px-4 md:px-12 h-20 flex items-center justify-between">
+                <!-- Logo y Ramal -->
+                <div class="flex items-center gap-3">
+                    <img alt="Logo" class="h-12 w-auto md:h-14" src="img/Logo/Logo.png">
+                    <div class="text-[#002e56] font-black tracking-tight uppercase text-2xl md:text-3xl">MITRE TIGRE</div>
+                </div>
+                <!-- Menú de Navegación -->
+                <nav class="hidden md:flex items-center gap-6 h-full">
+                    <a class="h-full flex items-center text-[#005fae] font-bold text-xs uppercase hover:text-[#002e56]" href="index.html">INICIO</a>
+                    <a class="h-full flex items-center text-[#005fae] font-bold text-xs uppercase hover:text-[#002e56]" href="estaciones.html">ESTACIONES</a>
+                    <a class="h-full flex items-center text-[#005fae] font-bold text-xs uppercase hover:text-[#002e56]" href="horarios.html">HORARIOS</a>
+                    <a class="h-full flex items-center text-[#002e56] border-b-4 border-[#002e56] pb-1 font-bold text-xs uppercase translate-y-[1px]" href="contacto.html">CONTACTO</a>
+                </nav>
+                <!-- Botón hacia el mapa -->
+                <a class="hidden md:block bg-[#00457c] text-white font-bold text-xs uppercase px-8 py-2 border-2 border-[#002e56] hover:bg-[#002e56] transition-colors" href="mapa.html">MAPA EN VIVO</a>
+
+                <!-- Botón de menú para vista móvil -->
+                <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden text-[#002e56] p-2" type="button">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <!-- Menú de navegación para dispositivos móviles -->
+            <nav id="mobile-menu" class="hidden md:hidden border-t-2 border-[#727781] bg-white px-4 py-3">
+                <div class="flex flex-col gap-2">
+                    <a class="px-3 py-2 border-2 border-[#005fae] text-[#005fae] font-bold text-xs uppercase" href="index.html">INICIO</a>
+                    <a class="px-3 py-2 border-2 border-[#005fae] text-[#005fae] font-bold text-xs uppercase" href="estaciones.html">ESTACIONES</a>
+                    <a class="px-3 py-2 border-2 border-[#005fae] text-[#005fae] font-bold text-xs uppercase" href="horarios.html">HORARIOS</a>
+                    <a class="px-3 py-2 border-2 border-[#002e56] bg-[#d3e4ff] text-[#002e56] font-bold text-xs uppercase" href="contacto.html">CONTACTO</a>
+                    <a class="mt-1 px-3 py-2 border-2 border-[#002e56] bg-[#00457c] text-white font-bold text-xs uppercase text-center" href="mapa.html">MAPA EN VIVO</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="flex-grow w-full max-w-[980px] mx-auto px-4 md:px-12 py-12">
+            <!-- Texto Presentación de la página -->
+            <section class="border-l-8 border-[#005fae] pl-6 mb-8">
+                <h1 class="text-3xl font-black text-[#002e56] uppercase tracking-tight">Contacto</h1>
+                <p class="mt-3 text-[#424750] max-w-2xl">Completá el formulario y te responderemos a la brevedad con información del servicio del Ramal Retiro - Tigre.</p>
+            </section>
+
+            <!-- Formulario de contacto -->
+            <section class="border-2 border-[#002e56] bg-[#f6f3f2] p-6 md:p-8">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-4" id="contact-form" novalidate>
+                    <!-- Campo de nombre completo -->
+                    <div class="md:col-span-1">
+                        <label class="block text-xs font-bold uppercase text-[#002e56] mb-2" for="full-name">Nombre completo</label>
+                        <input class="w-full border-2 border-[#005fae] bg-white px-3 py-2 focus:border-[#002e56] focus:outline-none" id="full-name" maxlength="60" minlength="3" name="fullName" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s'.-]{3,60}$" placeholder="Ej: Ana Pérez" required type="text">
+                    </div>
+
+                    <!-- Campo de correo electrónico -->
+                    <div class="md:col-span-1">
+                        <label class="block text-xs font-bold uppercase text-[#002e56] mb-2" for="email">Correo electrónico</label>
+                        <input class="w-full border-2 border-[#005fae] bg-white px-3 py-2 focus:border-[#002e56] focus:outline-none" id="email" maxlength="100" name="email" placeholder="nombre@correo.com" required type="email">
+                    </div>
+
+                    <!-- Campo de teléfono opcional -->
+                    <div class="md:col-span-1">
+                        <label class="block text-xs font-bold uppercase text-[#002e56] mb-2" for="phone">Teléfono (opcional)</label>
+                        <input class="w-full border-2 border-[#005fae] bg-white px-3 py-2 focus:border-[#002e56] focus:outline-none" id="phone" inputmode="tel" maxlength="20" name="phone" pattern="^[0-9+()\-\s]{8,20}$" placeholder="Ej: +54 11 1234 5678" type="tel">
+                    </div>
+
+                    <!-- Selector de motivo de consulta -->
+                    <div class="md:col-span-1">
+                        <label class="block text-xs font-bold uppercase text-[#002e56] mb-2" for="subject">Motivo de consulta</label>
+                        <select class="w-full border-2 border-[#005fae] bg-white px-3 py-2 focus:border-[#002e56] focus:outline-none" id="subject" name="subject" required>
+                            <option disabled selected value="">Seleccionar motivo...</option>
+                            <option value="horarios">Horarios y frecuencias</option>
+                            <option value="estaciones">Estaciones y accesos</option>
+                            <option value="objetos">Objetos perdidos</option>
+                            <option value="sugerencia">Sugerencia o reclamo</option>
+                        </select>
+                    </div>
+
+                    <!-- Área de mensaje de la consulta -->
+                    <div class="md:col-span-2">
+                        <label class="block text-xs font-bold uppercase text-[#002e56] mb-2" for="message">Mensaje</label>
+                        <textarea class="w-full border-2 border-[#005fae] bg-white px-3 py-2 focus:border-[#002e56] focus:outline-none" id="message" maxlength="800" minlength="20" name="message" placeholder="Contanos tu consulta con la mayor cantidad de detalles posible." required rows="6"></textarea>
+                        <p class="mt-1 text-xs text-[#424750]">Mínimo 20 caracteres, máximo 800.</p>
+                    </div>
+
+                    <!-- Confirmación de política de datos -->
+                    <div class="md:col-span-2 flex items-start gap-2 mt-1">
+                        <input class="mt-1 h-4 w-4 border-2 border-[#005fae] text-[#002e56]" id="privacy" name="privacy" required type="checkbox">
+                        <label class="text-sm text-[#1c1b1b]" for="privacy">Acepto el uso de mis datos para gestionar esta consulta.</label>
+                    </div>
+
+                    <!-- Acción de envío y mensaje de estado -->
+                    <div class="md:col-span-2 flex items-center gap-3 mt-2">
+                        <button class="bg-[#002e56] text-white uppercase font-bold text-sm px-6 py-3 border-2 border-[#002e56] hover:bg-[#005fae] transition-colors" type="submit">Enviar consulta</button>
+                        <span aria-live="polite" class="text-sm font-medium text-[#00457c]" id="form-feedback"></span>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="w-full bg-[#002e56] border-t-2 border-[#727781] mt-auto">
+            <div class="max-w-[1280px] mx-auto px-4 md:px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Ramal -->
+                <div class="text-white uppercase font-black text-lg">RAMAL RETIRO - TIGRE</div>
+                <!--Espacio reservado para enlaces -->
+                <nav class="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
+                </nav>
+                <!-- Copyright -->
+                <div class="text-white/80 text-xs">© Central de Transporte - GRUPO7 - Actividad Educativa</div>
+            </div>
+        </footer>
+
+        <!-- JavaScript para Validaciones y comportamiento del formulario de contacto -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const form = document.getElementById('contact-form');
+                const feedback = document.getElementById('form-feedback');
+                const phone = document.getElementById('phone');
+
+                // Abre y cierra el menú móvil principal.
+                if (mobileMenuButton && mobileMenu) {
+                    const mobileMenuIcon = mobileMenuButton.querySelector('.material-symbols-outlined');
+
+                    mobileMenuButton.addEventListener('click', function () {
+                        const isHidden = mobileMenu.classList.contains('hidden');
+                        mobileMenu.classList.toggle('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.textContent = isHidden ? 'close' : 'menu';
+                        }
+                    });
+
+                    mobileMenu.querySelectorAll('a').forEach(function (link) {
+                        link.addEventListener('click', function () {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenuButton.setAttribute('aria-expanded', 'false');
+                            if (mobileMenuIcon) {
+                                mobileMenuIcon.textContent = 'menu';
+                            }
+                        });
+                    });
+                }
+
+                // Define mensajes de validación personalizados por campo.
+                function setCustomMessages() {
+                    const fullName = document.getElementById('full-name');
+                    const email = document.getElementById('email');
+                    const subject = document.getElementById('subject');
+                    const message = document.getElementById('message');
+                    const privacy = document.getElementById('privacy');
+
+                    fullName.setCustomValidity('');
+                    email.setCustomValidity('');
+                    phone.setCustomValidity('');
+                    subject.setCustomValidity('');
+                    message.setCustomValidity('');
+                    privacy.setCustomValidity('');
+
+                    if (fullName.validity.valueMissing) {
+                        fullName.setCustomValidity('Ingresá tu nombre y apellido.');
+                    } else if (fullName.validity.patternMismatch) {
+                        fullName.setCustomValidity('Usá solo letras y caracteres válidos.');
+                    }
+
+                    if (email.validity.valueMissing) {
+                        email.setCustomValidity('Ingresá un correo electrónico.');
+                    } else if (email.validity.typeMismatch) {
+                        email.setCustomValidity('El formato del correo no es válido.');
+                    }
+
+                    if (phone.value && phone.validity.patternMismatch) {
+                        phone.setCustomValidity('El teléfono debe tener entre 8 y 20 caracteres válidos.');
+                    }
+
+                    if (subject.validity.valueMissing) {
+                        subject.setCustomValidity('Seleccioná un motivo de consulta.');
+                    }
+
+                    if (message.validity.valueMissing) {
+                        message.setCustomValidity('Escribí tu mensaje.');
+                    } else if (message.validity.tooShort) {
+                        message.setCustomValidity('El mensaje debe tener al menos 20 caracteres.');
+                    }
+
+                    if (privacy.validity.valueMissing) {
+                        privacy.setCustomValidity('Debés aceptar el uso de datos para continuar.');
+                    }
+                }
+
+                // Valida y simula envío exitoso del formulario.
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    setCustomMessages();
+
+                    if (!form.checkValidity()) {
+                        form.reportValidity();
+                        feedback.textContent = 'Revisá los campos marcados.';
+                        return;
+                    }
+
+                    feedback.textContent = 'Consulta enviada correctamente. Te responderemos pronto.';
+                    form.reset();
+                });
+
+                // Revalida en tiempo real y limpia el feedback al editar.
+                form.addEventListener('input', function () {
+                    setCustomMessages();
+                    feedback.textContent = '';
+                });
+            });
+        </script>
+    </body>
+</html>
+
+
+

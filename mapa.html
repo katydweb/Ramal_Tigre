@@ -1,0 +1,649 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Mapa Esquemático - Línea Mitre (Ramal Tigre)</title>
+        <!-- Recursos visuales: iconos, tipografías y estilos -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+        <link href="estilos/mapa.css" rel="stylesheet">
+        <!-- Motor de utilidades CSS -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <!--  Tema de diseño -->
+        <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c2c6d1",
+                        "on-primary-container": "#85b4f1",
+                        "secondary-fixed": "#d4e3ff",
+                        "on-surface-variant": "#424750",
+                        "primary": "#002e56",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#a8b2bb",
+                        "on-background": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#004785",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#3e484f",
+                        "secondary-fixed-dim": "#a5c8ff",
+                        "tertiary": "#252f35",
+                        "surface-container-high": "#eae7e7",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-container": "#00457c",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-fixed-variant": "#07487f",
+                        "on-primary-fixed": "#001c38",
+                        "primary-fixed-dim": "#a2c9ff",
+                        "on-secondary-container": "#003666",
+                        "surface-tint": "#2d6099",
+                        "tertiary-container": "#3b454c",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0eded",
+                        "on-tertiary-fixed": "#131d23",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#ffffff",
+                        "secondary": "#005fae",
+                        "tertiary-fixed-dim": "#bec8d0",
+                        "secondary-container": "#51a0ff",
+                        "outline": "#727781",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed": "#dae4ed",
+                        "surface-bright": "#ffffff",
+                        "inverse-primary": "#a2c9ff",
+                        "primary-fixed": "#d3e4ff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-fixed": "#001c3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "48px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "label-bold": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-bold": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "display-lg": ["32px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+        </script>
+    </head>
+    <body class="bg-surface text-on-surface font-body-lg min-h-screen flex flex-col antialiased">
+        <!-- Header -->
+        <header class="w-full bg-surface border-b-2 border-outline z-50 sticky top-0">
+            <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+                <!-- Logo y Ramal -->
+                <div class="flex items-center gap-3 shrink-0">
+                    <img src="img/Logo/Logo.png" alt="Logo" class="h-12 w-auto md:h-14">
+                    <div class="font-display-lg text-display-lg text-primary tracking-tighter uppercase shrink-0 font-black">
+                        MITRE TIGRE
+                    </div>
+                </div>
+                <!-- Menú de Navegación -->
+                <nav class="hidden md:flex gap-gutter items-center h-full">
+                    <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="index.html">
+                        INICIO
+                    </a>
+                    <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="estaciones.html">
+                        ESTACIONES
+                    </a>
+                    <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="horarios.html">
+                        HORARIOS
+                    </a>
+                    <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="contacto.html">
+                        CONTACTO
+                    </a>
+                </nav>
+                <!-- Botón hacia el mapa en vivo -->
+                <a class="hidden md:block bg-primary-container text-on-primary font-label-bold text-label-bold uppercase md:px-3 lg:px-stack-lg py-stack-sm border-2 border-primary hover:bg-primary transition-colors" href="mapa.html">
+                    MAPA EN VIVO
+                </a>
+
+                <!-- Botón de menú para vista móvil -->
+                <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden text-primary p-2" type="button">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <!-- Menú de navegación para dispositivos móviles -->
+            <nav id="mobile-menu" class="hidden md:hidden border-t-2 border-outline bg-surface px-margin-mobile py-stack-sm">
+                <div class="flex flex-col gap-2">
+                    <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="index.html">INICIO</a>
+                    <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="estaciones.html">ESTACIONES</a>
+                    <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="horarios.html">HORARIOS</a>
+                    <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="contacto.html">CONTACTO</a>
+                    <a class="mt-1 px-3 py-2 border-2 border-primary bg-primary-container text-on-primary-container font-label-bold text-label-bold uppercase text-center" href="mapa.html">MAPA EN VIVO</a>
+                </div>
+            </nav>
+        </header>
+        <!-- Contenido del mapa interactivo -->
+        <main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-12 flex flex-col gap-12">
+            <!-- Título y contexto de la sección -->
+            <header class="flex flex-col gap-4 border-l-8 border-secondary pl-6">
+                <h1 class="font-sans text-2xl md:text-3xl font-black text-primary uppercase tracking-tight mb-4" data-stitch-orig-opacity="0">MAPA DE RED</h1>
+                <p class="font-body-lg text-on-surface-variant max-w-3xl border-b-2 border-surface-variant pb-4">Vista interactiva del Ramal Retiro - Tigre y conexiones de subte.</p>
+            </header>
+            <!-- Contenedor de controles y visualización del mapa -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <!-- Tarjeta de selector de líneas -->
+                <div class="md:col-span-12 bg-surface-variant border-2 border-primary p-6 flex flex-col justify-center">
+                    <!-- Botones para alternar entre líneas/subtes -->
+                    <div class="flex flex-wrap gap-6">
+                        <button type="button" data-subte-line="mitre" class="subte-line-button flex items-center gap-3 bg-surface text-on-surface px-3 py-2 border-2 border-primary hover:bg-primary hover:text-white transition-colors">
+                            <span class="w-4 h-4 bg-secondary border-2 border-primary"></span>
+                            <span class="font-label-lg uppercase">Ramal Retiro - Tigre</span>
+                        </button>
+                        <button type="button" data-subte-line="c" class="subte-line-button flex items-center gap-3 bg-surface text-on-surface px-3 py-2 border-2 border-primary hover:bg-primary hover:text-white transition-colors">
+                            <span class="w-6 h-6 bg-[#007cc0] text-white flex items-center justify-center font-headline-md text-sm border border-primary">C</span>
+                            <span class="font-label-lg uppercase">Subte C</span>
+                        </button>
+                        <button type="button" data-subte-line="e" class="subte-line-button flex items-center gap-3 bg-surface text-on-surface px-3 py-2 border-2 border-primary hover:bg-primary hover:text-white transition-colors">
+                            <span class="w-6 h-6 bg-[#5b2c86] text-white flex items-center justify-center font-headline-md text-sm border border-primary">E</span>
+                            <span class="font-label-lg uppercase">Subte E</span>
+                        </button>
+                    </div>
+                    <!-- Vista del esquema de la línea seleccionada -->
+                    <div class="mt-6 border-2 border-primary bg-white p-3">
+                        <p id="subte-image-title" class="font-label-bold text-label-bold text-primary uppercase mb-2">Mapa de estaciones Línea C</p>
+                        <img
+                            id="subte-line-image"
+                            src="https://commons.wikimedia.org/wiki/Special:FilePath/L%C3%ADnea_C_del_Subte_de_Buenos_Aires.svg"
+                            alt="Mapa de estaciones de la línea C"
+                            class="w-full h-auto"
+                            loading="lazy"
+                        >
+                        <!-- Vista propia del ramal Mitre cuando está activa -->
+                        <div id="mitre-map-preview" class="hidden border border-outline bg-white overflow-hidden">
+                            <div class="relative">
+                                <div class="absolute inset-0 opacity-[0.05] pointer-events-none map-grid-overlay"></div>
+                                <div id="mitre-map-canvas" class="p-4 overflow-x-auto map-scroll relative min-h-[260px] flex items-center bg-white/90">
+                                    <div class="relative flex items-center pt-32 pb-32 w-full mx-auto border-y-2 border-surface-variant">
+                                        <div data-map-track class="absolute h-3 w-full bg-primary top-1/2 -translate-y-1/2 left-0"></div>
+                                        <div id="mitre-stations" class="relative w-full flex justify-between items-center z-10 px-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta informativa de estación seleccionada -->
+                    <div id="station-info-card" class="mt-6 bg-surface border-2 border-primary p-6 hidden">
+                        <p class="font-label-bold text-label-bold text-primary uppercase">Estación seleccionada</p>
+                        <h2 id="station-name" class="font-headline-md text-headline-md text-primary mt-2 uppercase">Retiro</h2>
+                        <p id="station-details" class="font-body-md text-on-surface-variant mt-2">Terminal cabecera en Retiro, con conexión directa a Subte C y E.</p>
+                        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="border border-primary bg-surface-container-low p-3">
+                                <p class="font-label-bold text-label-bold uppercase text-primary">Tiempo acumulado</p>
+                                <p id="station-cumulative-time" class="font-headline-sm text-headline-sm text-on-surface mt-1">0 min desde Retiro</p>
+                            </div>
+                            <div class="border border-primary bg-surface-container-low p-3">
+                                <p class="font-label-bold text-label-bold uppercase text-primary">Próximo tramo</p>
+                                <p id="station-next-stop" class="font-headline-sm text-headline-sm text-on-surface mt-1">Lisandro de la Torre · 4 min</p>
+                            </div>
+                        </div>
+                        <div class="mt-5 flex flex-col md:flex-row md:items-center gap-3">
+                            <span class="font-label-bold text-label-bold uppercase text-on-surface-variant">Avance del ramal</span>
+                            <div class="h-3 flex-1 border border-primary bg-surface-variant">
+                                <div id="station-progress" class="h-full bg-secondary transition-all duration-300 station-progress-bar"></div>
+                            </div>
+                            <span id="station-progress-text" class="font-label-bold text-label-bold uppercase text-primary">1 / 17</span>
+                        </div>
+                        <div class="mt-5 flex gap-3">
+                            <button id="station-prev" type="button" class="px-4 py-2 border-2 border-primary text-primary font-label-bold text-label-bold uppercase hover:bg-primary hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed">Anterior</button>
+                            <button id="station-next" type="button" class="px-4 py-2 border-2 border-primary bg-primary text-white font-label-bold text-label-bold uppercase hover:bg-secondary transition-colors disabled:opacity-40 disabled:cursor-not-allowed">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="w-full bg-primary border-t-2 border-outline mt-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-stack-lg gap-gutter max-w-container-max mx-auto">
+                <!-- Ramal -->
+                <div class="font-headline-sm text-headline-sm font-black text-white uppercase">
+                    RAMAL RETIRO - TIGRE
+                </div>
+
+                <div class="flex flex-col items-center md:items-end gap-stack-sm">
+                    <!-- Espacio reservado para Enlaces -->
+                    <nav class="flex flex-wrap justify-center md:justify-end gap-stack-md md:gap-gutter">
+                    </nav>
+                    <!-- Copyright -->
+                    <div class="font-label-sm text-label-sm text-white/80">
+                        © Central de Transporte - GRUPO7 - Actividad Educativa
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--JavaSript: Lógica interactiva de líneas, estaciones y navegación del ramal -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const image = document.getElementById('subte-line-image');
+                const title = document.getElementById('subte-image-title');
+                const mitrePreview = document.getElementById('mitre-map-preview');
+                const mitreMapCanvas = document.getElementById('mitre-map-canvas');
+                const stationInfoCard = document.getElementById('station-info-card');
+                const stationName = document.getElementById('station-name');
+                const stationDetails = document.getElementById('station-details');
+                const stationProgress = document.getElementById('station-progress');
+                const stationProgressText = document.getElementById('station-progress-text');
+                const stationCumulativeTime = document.getElementById('station-cumulative-time');
+                const stationNextStop = document.getElementById('station-next-stop');
+                const stationPrev = document.getElementById('station-prev');
+                const stationNext = document.getElementById('station-next');
+                const buttons = Array.from(document.querySelectorAll('.subte-line-button'));
+                let mitreController = null;
+
+                // Abre y cierra el menú móvil principal.
+                if (mobileMenuButton && mobileMenu) {
+                    const mobileMenuIcon = mobileMenuButton.querySelector('.material-symbols-outlined');
+
+                    mobileMenuButton.addEventListener('click', function () {
+                        const isHidden = mobileMenu.classList.contains('hidden');
+                        mobileMenu.classList.toggle('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.textContent = isHidden ? 'close' : 'menu';
+                        }
+                    });
+
+                    mobileMenu.querySelectorAll('a').forEach(function (link) {
+                        link.addEventListener('click', function () {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenuButton.setAttribute('aria-expanded', 'false');
+                            if (mobileMenuIcon) {
+                                mobileMenuIcon.textContent = 'menu';
+                            }
+                        });
+                    });
+                }
+
+                // Minutos estimados entre estaciones consecutivas del ramal.
+                const segmentMinutes = [4, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 3, 4, 4, 3, 4];
+
+                // Recursos visuales por cada línea seleccionable.
+                const lineAssets = {
+                    mitre: {
+                        title: 'Mapa de estaciones Linea Mitre',
+                        alt: 'Mapa de estaciones de la linea Mitre'
+                    },
+                    c: {
+                        title: 'Mapa de estaciones Linea C',
+                        src: 'https://commons.wikimedia.org/wiki/Special:FilePath/L%C3%ADnea_C_del_Subte_de_Buenos_Aires.svg',
+                        alt: 'Mapa de estaciones de la linea C'
+                    },
+                    e: {
+                        title: 'Mapa de estaciones Linea E',
+                        src: 'https://commons.wikimedia.org/wiki/Special:FilePath/L%C3%ADnea_E_del_Subte_de_Buenos_Aires.svg',
+                        alt: 'Mapa de estaciones de la linea E'
+                    }
+                };
+
+                // Configuración de nodos para construir el mapa del ramal Mitre.
+                const mitreStations = [
+                    {
+                        name: 'RETIRO',
+                        markerClass: 'w-5 h-5 bg-secondary border-2 border-primary',
+                        labelWrapperClass: 'absolute -top-16 text-center whitespace-nowrap',
+                        labelClass: 'font-label-lg text-xs text-primary group-hover/node:bg-primary group-hover/node:text-on-primary px-1 py-0.5 transition-colors uppercase border-2 border-transparent group-hover/node:border-primary',
+                        extrasHtml: '<div class="flex gap-1 justify-center mt-1"><span class="w-4 h-4 bg-[#007cc0] text-white flex items-center justify-center font-bold text-[9px] border border-primary" title="Subte C">C</span><span class="w-4 h-4 bg-[#5b2c86] text-white flex items-center justify-center font-bold text-[9px] border border-primary" title="Subte E">E</span><span class="w-4 h-4 bg-surface-variant text-primary flex items-center justify-center border border-primary" title="Línea San Martín"><span class="material-symbols-outlined text-[10px]">train</span></span></div>'
+                    },
+                    { name: 'LISANDRO DE LA TORRE', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute top-6 rotate-45 origin-top-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    { name: 'BELGRANO C', markerClass: 'w-3.5 h-6 bg-secondary border-2 border-primary', labelWrapperClass: 'absolute -top-10 text-center whitespace-nowrap', labelClass: 'font-label-lg text-[10px] text-primary group-hover/node:bg-primary group-hover/node:text-on-primary px-1 py-0.5 transition-colors uppercase' },
+                    { name: 'NÚÑEZ', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute top-6 rotate-45 origin-top-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    { name: 'RIVADAVIA', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute top-6 rotate-45 origin-top-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    { name: 'VICENTE LÓPEZ', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute -top-6 rotate-[-45deg] origin-bottom-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    { name: 'OLIVOS', markerClass: 'w-3.5 h-6 bg-secondary border-2 border-primary', labelWrapperClass: 'absolute top-8 text-center whitespace-nowrap', labelClass: 'font-label-lg text-[10px] text-primary group-hover/node:bg-primary group-hover/node:text-on-primary px-1 py-0.5 transition-colors uppercase' },
+                    { name: 'LA LUCILA', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute -top-6 rotate-[-45deg] origin-bottom-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    { name: 'MARTÍNEZ', markerClass: 'w-3.5 h-6 bg-secondary border-2 border-primary', labelWrapperClass: 'absolute top-8 text-center whitespace-nowrap', labelClass: 'font-label-lg text-[10px] text-primary group-hover/node:bg-primary group-hover/node:text-on-primary px-1 py-0.5 transition-colors uppercase' },
+                    { name: 'ACASSUSO', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute -top-6 rotate-[-45deg] origin-bottom-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    { name: 'SAN ISIDRO', markerClass: 'w-4 h-4 bg-secondary border-2 border-primary', labelWrapperClass: 'absolute top-8 text-center whitespace-nowrap', labelClass: 'font-label-lg text-[10px] text-primary group-hover/node:bg-primary group-hover/node:text-on-primary px-1 py-0.5 transition-colors uppercase' },
+                    { name: 'BECCAR', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute -top-6 rotate-[-45deg] origin-bottom-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    { name: 'VICTORIA', markerClass: 'w-4 h-4 bg-secondary border-2 border-primary', labelWrapperClass: 'absolute top-8 text-center whitespace-nowrap', labelClass: 'font-label-lg text-[10px] text-primary group-hover/node:bg-primary group-hover/node:text-on-primary px-1 py-0.5 transition-colors uppercase', branch: true, extrasHtml: '<div class="mt-1 text-[8px] font-bold text-primary border border-primary bg-surface-variant px-1 py-0.5 uppercase tracking-widest">RAMAL CAPILLA</div>' },
+                    { name: 'VIRREYES', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute -top-6 rotate-[-45deg] origin-bottom-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    { name: 'SAN FERNANDO', markerClass: 'w-3.5 h-6 bg-secondary border-2 border-primary', labelWrapperClass: 'absolute top-8 text-center whitespace-nowrap', labelClass: 'font-label-lg text-[10px] text-primary group-hover/node:bg-primary group-hover/node:text-on-primary px-1 py-0.5 transition-colors uppercase' },
+                    { name: 'CARUPÁ', markerClass: 'w-2.5 h-5 bg-surface border-2 border-primary', labelWrapperClass: 'absolute -top-6 rotate-[-45deg] origin-bottom-left whitespace-nowrap', labelClass: 'text-[9px] font-bold text-on-surface-variant group-hover/node:text-primary transition-colors uppercase bg-surface px-1 border-l-2 border-transparent group-hover/node:border-primary' },
+                    {
+                        name: 'TIGRE',
+                        markerClass: 'w-5 h-5 bg-secondary border-2 border-primary',
+                        labelWrapperClass: 'absolute -top-12 text-center whitespace-nowrap',
+                        labelClass: 'font-label-lg text-xs text-primary group-hover/node:bg-primary group-hover/node:text-on-primary px-1.5 py-0.5 transition-colors uppercase border-2 border-transparent group-hover/node:border-primary',
+                        extrasHtml: '<div class="flex gap-1 justify-center mt-1"><span class="material-symbols-outlined text-primary text-[12px] border border-primary bg-surface p-0.5" title="Terminal Fluvial">directions_boat</span></div>'
+                    }
+                ];
+
+                const stationDescriptions = {
+                    retiro: 'Terminal cabecera en Retiro, con conexión directa a Subte C y E.',
+                    lisandrodelatorre: 'Parada estratégica del corredor norte, próxima a zonas de clubes y polo gastronómico.',
+                    belgranoc: 'Nodo de acceso al barrio de Belgrano y conexión con múltiples líneas de colectivo.',
+                    nunez: 'Estación con alto flujo residencial y estudiantil, cercana a avenidas troncales.',
+                    rivadavia: 'Parada barrial con acceso rápido al eje comercial de Vicente López.',
+                    vicentelopez: 'Estación central del partido de Vicente López, con entorno administrativo y comercial.',
+                    olivos: 'Punto clave del ramal, cercano al Puerto de Olivos y centros de servicio.',
+                    lalucila: 'Parada residencial con accesos peatonales de cercanía y tráfico moderado.',
+                    martinez: 'Estación de alta demanda en horas pico por su actividad educativa y comercial.',
+                    acassuso: 'Parada intermedia con perfil residencial y conexión a corredores locales.',
+                    sanisidro: 'Nodo importante del casco histórico de San Isidro y su centro cívico.',
+                    beccar: 'Estación de intercambio local, de fuerte uso cotidiano y acceso vecinal.',
+                    victoria: 'Punto de bifurcación operativo, donde se vincula el ramal hacia Capilla.',
+                    virreyes: 'Parada de tránsito barrial con conexión a ejes urbanos de San Fernando.',
+                    sanfernando: 'Estación principal de San Fernando, de alta demanda y servicios cercanos.',
+                    carupa: 'Parada intermedia antes de terminal, con flujo principalmente residencial.',
+                    tigre: 'Terminal final del ramal, con acceso al polo turístico y estación fluvial.'
+                };
+
+                // Normaliza nombres para usar como clave de búsqueda.
+                function normalizeStationKey(name) {
+                    return name
+                        .normalize('NFD')
+                        .replace(/[\u0300-\u036f]/g, '')
+                        .replace(/[^a-zA-Z]/g, '')
+                        .toLowerCase();
+                }
+
+                    // Obtiene el texto principal de la estación desde el nodo visual.
+                function extractStationName(node) {
+                    const label = node.querySelector('span');
+                    if (!label) {
+                        return 'Estacion';
+                    }
+
+                    return label.textContent.trim();
+                }
+
+                // Dibuja los nodos de estaciones en el mapa del ramal Mitre.
+                function renderMitreStations() {
+                    const stationsHost = document.getElementById('mitre-stations');
+
+                    if (!stationsHost || stationsHost.children.length) {
+                        return;
+                    }
+
+                    mitreStations.forEach(function (station) {
+                        const node = document.createElement('div');
+                        node.className = 'relative group/node flex flex-col items-center cursor-pointer';
+
+                        if (station.branch) {
+                            const branch = document.createElement('div');
+                            branch.className = 'absolute h-16 w-2 bg-surface-variant border-x-[1px] border-t-[1px] border-primary -top-16 z-0';
+                            node.appendChild(branch);
+                        }
+
+                        const marker = document.createElement('div');
+                        marker.className = station.markerClass + ' z-20 transition-transform group-hover/node:scale-110';
+                        node.appendChild(marker);
+
+                        const labelWrapper = document.createElement('div');
+                        labelWrapper.className = station.labelWrapperClass;
+
+                        const label = document.createElement('span');
+                        label.className = station.labelClass;
+                        label.textContent = station.name;
+                        labelWrapper.appendChild(label);
+
+                        if (station.extrasHtml) {
+                            labelWrapper.insertAdjacentHTML('beforeend', station.extrasHtml);
+                        }
+
+                        node.appendChild(labelWrapper);
+                        stationsHost.appendChild(node);
+                    });
+                }
+
+                // Activa selección de estaciones y estado visual del trazado.
+                function setupMitreMapInteractivity(mapRoot) {
+                    if (!mapRoot || mapRoot.dataset.interactiveReady === 'true') {
+                        return;
+                    }
+
+                    const nodes = Array.from(mapRoot.querySelectorAll('.group\\/node'));
+                    const track = mapRoot.querySelector('[data-map-track]');
+                    let currentIndex = 0;
+
+                    if (!nodes.length || !track) {
+                        return;
+                    }
+
+                    function getCumulativeMinutes(index) {
+                        if (index <= 0) {
+                            return 0;
+                        }
+
+                        return segmentMinutes.slice(0, index).reduce(function (acc, value) {
+                            return acc + value;
+                        }, 0);
+                    }
+
+                    function activateStation(index) {
+                        const boundedIndex = Math.max(0, Math.min(index, nodes.length - 1));
+                        currentIndex = boundedIndex;
+
+                        nodes.forEach(function (node, nodeIndex) {
+                            const marker = node.querySelector('.station-marker');
+                            const firstLabel = node.querySelector('span');
+
+                            node.classList.remove('station-active', 'station-completed', 'station-pending');
+                            if (firstLabel) {
+                                firstLabel.classList.remove('station-label-active');
+                            }
+
+                            if (nodeIndex < boundedIndex) {
+                                node.classList.add('station-completed');
+                            } else if (nodeIndex === boundedIndex) {
+                                node.classList.add('station-active');
+                                if (firstLabel) {
+                                    firstLabel.classList.add('station-label-active');
+                                }
+                            } else {
+                                node.classList.add('station-pending');
+                            }
+
+                            if (marker) {
+                                marker.style.willChange = 'transform';
+                            }
+                        });
+
+                        const selectedNode = nodes[boundedIndex];
+                        const station = extractStationName(selectedNode);
+                        const key = normalizeStationKey(station);
+                        const progress = nodes.length > 1 ? (boundedIndex / (nodes.length - 1)) * 100 : 0;
+                        const cumulativeMinutes = getCumulativeMinutes(boundedIndex);
+                        const hasNext = boundedIndex < nodes.length - 1;
+                        const nextStationName = hasNext ? extractStationName(nodes[boundedIndex + 1]) : 'Terminal';
+                        const nextMinutes = hasNext ? segmentMinutes[boundedIndex] : 0;
+
+                        track.style.background = 'linear-gradient(to right, #005fae 0%, #005fae ' + progress + '%, #002e56 ' + progress + '%, #002e56 100%)';
+
+                        if (stationInfoCard && stationName && stationDetails && stationProgress && stationProgressText) {
+                            stationInfoCard.classList.remove('hidden');
+                            stationName.textContent = station;
+                            stationDetails.textContent = stationDescriptions[key] || 'Estación del Ramal Retiro - Tigre.';
+                            stationProgress.style.width = progress + '%';
+                            stationProgressText.textContent = (boundedIndex + 1) + ' / ' + nodes.length;
+
+                            if (stationCumulativeTime) {
+                                stationCumulativeTime.textContent = cumulativeMinutes + ' min desde Retiro';
+                            }
+
+                            if (stationNextStop) {
+                                stationNextStop.textContent = hasNext ? nextStationName + ' · ' + nextMinutes + ' min' : 'Sin próximo tramo';
+                            }
+
+                            if (stationPrev && stationNext) {
+                                stationPrev.disabled = boundedIndex === 0;
+                                stationNext.disabled = boundedIndex === nodes.length - 1;
+                            }
+                        }
+
+                    }
+
+                    nodes.forEach(function (node, index) {
+                        node.classList.add('station-node');
+
+                        const marker = Array.from(node.children).find(function (child) {
+                            return child.classList && child.classList.contains('z-20');
+                        });
+
+                        if (marker) {
+                            marker.classList.add('station-marker');
+                        }
+
+                        const station = extractStationName(node);
+                        node.setAttribute('role', 'button');
+                        node.setAttribute('tabindex', '0');
+                        node.setAttribute('aria-label', 'Ver informacion de ' + station);
+
+                        node.addEventListener('click', function () {
+                            activateStation(index);
+                        });
+
+                        node.addEventListener('keydown', function (event) {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                activateStation(index);
+                            }
+                        });
+                    });
+
+                    mitreController = {
+                        mapRoot: mapRoot,
+                        activate: activateStation,
+                        getCurrentIndex: function () {
+                            return currentIndex;
+                        }
+                    };
+
+                    mapRoot.dataset.interactiveReady = 'true';
+                    activateStation(0);
+                }
+
+                // Alterna entre vista del ramal Mitre y mapas de subte.
+                function updateSubteImage(line) {
+                    if (!image || !title || !lineAssets[line]) {
+                        return;
+                    }
+
+                    // Ajusta el tamaño visual del SVG según la línea seleccionada.
+                    image.classList.remove('max-w-full', 'max-w-4xl', 'max-w-3xl', 'max-w-2xl', 'mx-auto');
+                    if (line === 'c') {
+                        image.classList.add('max-w-2xl', 'mx-auto');
+                    } else if (line === 'e') {
+                        image.classList.add('max-w-4xl', 'mx-auto');
+                    } else {
+                        image.classList.add('max-w-full');
+                    }
+
+                    title.textContent = lineAssets[line].title;
+                    image.alt = lineAssets[line].alt;
+
+                    if (line === 'mitre') {
+                        image.classList.add('hidden');
+                        if (mitrePreview) {
+                            mitrePreview.classList.remove('hidden');
+                        }
+                        if (stationInfoCard) {
+                            stationInfoCard.classList.remove('hidden');
+                        }
+                    } else {
+                        image.src = lineAssets[line].src;
+                        image.classList.remove('hidden');
+                        if (mitrePreview) {
+                            mitrePreview.classList.add('hidden');
+                        }
+                        if (stationInfoCard) {
+                            stationInfoCard.classList.add('hidden');
+                        }
+                    }
+
+                    buttons.forEach(function (button) {
+                        const isActive = button.getAttribute('data-subte-line') === line;
+                        button.classList.toggle('bg-primary', isActive);
+                        button.classList.toggle('bg-surface', !isActive);
+                        button.classList.toggle('text-white', isActive);
+                        button.classList.toggle('text-on-surface', !isActive);
+                        button.classList.toggle('border-secondary', isActive);
+                        button.classList.toggle('border-primary', !isActive);
+                    });
+                }
+
+                // Cambia de línea al presionar cada botón de la leyenda.
+                buttons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        updateSubteImage(button.getAttribute('data-subte-line'));
+                    });
+                });
+
+                // Navega a la estación anterior desde la tarjeta de detalle.
+                if (stationPrev) {
+                    stationPrev.addEventListener('click', function () {
+                        if (!mitreController) {
+                            return;
+                        }
+
+                        const currentIndex = mitreController.getCurrentIndex();
+                        mitreController.activate(currentIndex - 1);
+                    });
+                }
+
+                // Navega a la estación siguiente desde la tarjeta de detalle.
+                if (stationNext) {
+                    stationNext.addEventListener('click', function () {
+                        if (!mitreController) {
+                            return;
+                        }
+
+                        const currentIndex = mitreController.getCurrentIndex();
+                        mitreController.activate(currentIndex + 1);
+                    });
+                }
+
+                // Inicializa mapa y deja seleccionada la vista del ramal Mitre.
+                renderMitreStations();
+                setupMitreMapInteractivity(mitreMapCanvas);
+                updateSubteImage('mitre');
+            });
+        </script>
+    </body>
+</html>
+
+
+

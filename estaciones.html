@@ -1,0 +1,696 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Recursos base: iconos, tipografías y estilos de la página -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mitre Tigre - Estaciones Urbanas</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+    <link href="estilos/estaciones.css" rel="stylesheet">
+
+    <!-- Tema de Diseño -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c2c6d1",
+                        "on-primary-container": "#85b4f1",
+                        "secondary-fixed": "#d4e3ff",
+                        "on-surface-variant": "#424750",
+                        "primary": "#002e56",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#a8b2bb",
+                        "on-background": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#004785",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#3e484f",
+                        "secondary-fixed-dim": "#a5c8ff",
+                        "tertiary": "#252f35",
+                        "surface-container-high": "#eae7e7",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-container": "#00457c",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-fixed-variant": "#07487f",
+                        "on-primary-fixed": "#001c38",
+                        "primary-fixed-dim": "#a2c9ff",
+                        "on-secondary-container": "#003666",
+                        "surface-tint": "#2d6099",
+                        "tertiary-container": "#3b454c",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container": "#f0eded",
+                        "on-tertiary-fixed": "#131d23",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#ffffff",
+                        "secondary": "#005fae",
+                        "tertiary-fixed-dim": "#bec8d0",
+                        "secondary-container": "#51a0ff",
+                        "outline": "#727781",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed": "#dae4ed",
+                        "surface-bright": "#ffffff",
+                        "inverse-primary": "#a2c9ff",
+                        "primary-fixed": "#d3e4ff",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-fixed": "#001c3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "48px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "label-bold": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-bold": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "display-lg": ["32px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="antialiased font-sans flex flex-col min-h-screen">
+    <!-- Header-->
+    <header class="w-full bg-surface border-b-2 border-outline z-50 sticky top-0">
+        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+            <!-- Logo y Ramal -->
+            <div class="flex items-center gap-3 shrink-0">
+                <img src="img/Logo/Logo.png" alt="Logo" class="h-12 w-auto md:h-14">
+                <div class="font-display-lg text-display-lg text-primary tracking-tighter uppercase font-black">
+                    MITRE TIGRE
+                </div>
+            </div>
+
+            <!-- Menú de Navegación -->
+            <nav class="hidden md:flex gap-gutter items-center h-full">
+                <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="index.html">
+                    INICIO
+                </a>
+                <a class="h-full flex items-center text-primary border-b-4 border-primary pb-1 font-label-bold text-label-bold uppercase translate-y-[1px] transition-transform" href="estaciones.html">
+                    ESTACIONES
+                </a>
+                <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="horarios.html">
+                    HORARIOS
+                </a>
+                <a class="h-full flex items-center text-secondary font-label-bold text-label-bold uppercase hover:text-primary transition-colors duration-200" href="contacto.html">
+                    CONTACTO
+                </a>
+            </nav>
+
+            <!-- Botón para acceso al mapa -->
+            <a class="hidden md:block bg-primary-container text-on-primary font-label-bold text-label-bold uppercase md:px-3 lg:px-stack-lg py-stack-sm border-2 border-primary hover:bg-primary transition-colors" href="mapa.html">
+                MAPA EN VIVO
+            </a>
+
+            <!-- Sección: Botón de menú para vista móvil -->
+            <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden text-primary p-stack-sm" type="button">
+                <span class="material-symbols-outlined icon-outline">menu</span>
+            </button>
+        </div>
+
+        <!-- Menú de navegación para dispositivos móviles -->
+        <nav id="mobile-menu" class="hidden md:hidden border-t-2 border-outline bg-surface px-margin-mobile py-stack-sm">
+            <div class="flex flex-col gap-2">
+                <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="index.html">INICIO</a>
+                <a class="px-3 py-2 border-2 border-primary bg-primary-container text-on-primary-container font-label-bold text-label-bold uppercase" href="estaciones.html">ESTACIONES</a>
+                <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="horarios.html">HORARIOS</a>
+                <a class="px-3 py-2 border-2 border-secondary text-secondary font-label-bold text-label-bold uppercase" href="contacto.html">CONTACTO</a>
+                <a class="mt-1 px-3 py-2 border-2 border-primary bg-primary-container text-on-primary font-label-bold text-label-bold uppercase text-center" href="mapa.html">MAPA EN VIVO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 md:px-12 py-8">
+        <!-- Texto Presentación de la página de estaciones -->
+        <section class="mb-10 relative">
+            <div class="flex items-stretch gap-6">
+                <div class="accent-bar hidden md:block"></div>
+                <div class="flex-grow py-2">
+                    <h1 class="text-2xl md:text-3xl font-black text-primary uppercase tracking-tight mb-4">ESTACIONES</h1>
+                    <p class="text-lg text-secondary max-w-3xl">Red de infraestructura metropolitana Ramal Tigre. Puntos de conexión de alto tránsito con accesibilidad universal y servicios integrados.</p>
+                </div>
+                <div class="w-4 stripes hidden md:block"></div>
+            </div>
+        </section>
+
+        <!-- Filtros y búsqueda de estaciones -->
+        <section class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10 border-b border-outline-variant pb-6">
+            <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                <button id="show-all-stations-button" class="bg-primary text-surface px-4 py-2 font-bold text-sm uppercase transition-colors shadow-[2px_2px_0px_#727781]" type="button">Todas</button>
+                <button id="subte-filter-button" class="bg-transparent border border-primary text-primary px-4 py-2 font-bold text-sm uppercase hover:bg-surface-container-low transition-colors" type="button">
+                    <span>Con conexión Subte</span>
+                    <span id="subte-filter-count" class="hidden ml-2 inline-flex min-w-6 items-center justify-center rounded-full bg-primary px-2 py-0.5 text-[10px] font-black text-surface">0</span>
+                </button>
+                <button id="accessible-filter-button" class="bg-transparent border border-primary text-primary px-4 py-2 font-bold text-sm uppercase hover:bg-surface-container-low transition-colors flex items-center gap-2" type="button">
+                    <span class="material-symbols-outlined text-accent">accessible</span>
+                    <span>Accesible</span>
+                    <span id="accessible-filter-count" class="hidden ml-2 inline-flex min-w-6 items-center justify-center rounded-full bg-primary px-2 py-0.5 text-[10px] font-black text-surface">0</span>
+                </button>
+            </div>
+
+            <div class="w-full md:w-80 relative">
+                <input id="search-input" class="w-full border-2 border-primary py-2 px-4 font-bold text-sm uppercase focus:ring-0 focus:border-primary placeholder-secondary" placeholder="BUSCAR ESTACIÓN..." type="text">
+                <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-primary text-[18px] leading-none opacity-90 pointer-events-none">search</span>
+            </div>
+        </section>
+
+        <!-- Mensaje cuando no hay resultados para la búsqueda/filtro -->
+        <div id="search-empty-state" class="hidden mb-8 border-2 border-outline bg-surface-container-low px-4 py-3 text-sm font-bold uppercase tracking-wide text-secondary">
+            No se encontraron estaciones para tu búsqueda.
+        </div>
+
+        <!--Grillade estaciones del ramal -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Tarjeta estación cabecera Retiro -->
+            <article class="col-span-full station-card bg-surface border-2 border-primary flex flex-col md:flex-row overflow-hidden relative mb-8" data-subte="true" data-rampa="true">
+                <div class="w-full md:w-1/2 h-64 md:h-80 relative">
+                    <img alt="Estación Retiro" class="w-full h-full object-cover" src="img/Estaciones/estacion_retiro.png">
+                    <span class="absolute top-4 left-4 bg-accent text-surface px-2 py-1 font-bold badge uppercase">ETAPA TERMINAL</span>
+                </div>
+
+                <div class="p-6 md:p-8 flex flex-col justify-between w-full md:w-1/2">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h2 class="text-4xl font-black uppercase tracking-tight">01. RETIRO</h2>
+                        </div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="bg-primary text-white text-[10px] px-2 py-0.5 font-bold uppercase">COMUNA 1</span>
+                            <span class="bg-surface-container-highest text-secondary text-[10px] px-2 py-0.5 font-bold uppercase">ESTACIÓN CABECERA</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-secondary text-sm md:text-base leading-snug">
+                            <div><strong>Conexión Subte:</strong> Líneas C y E</div>
+                            <div><strong>FFCC:</strong> San Martín y Belgrano N.</div>
+                            <div class="col-span-2">
+                                <strong>Conexión Colectivos:</strong>
+                                <button type="button" class="appearance-none bg-transparent border-0 p-0 m-0 text-secondary font-inherit" data-colectivos-toggle="retiro-colectivos-box" aria-expanded="false">Ver detalle</button>
+                            </div>
+                        </div>
+                        <div id="retiro-colectivos-box" class="hidden mt-3 rounded-2xl border-2 border-outline bg-surface-container-low px-4 py-3 text-secondary text-sm md:text-base leading-snug">
+                            <strong>Colectivos:</strong> 7, 8, 9, 22, 23, 26, 28, 33, 45, 56, 61, 62, 70, 91, 92, 100, 101, 115, 126, 129, 132, 143, 150, 152, 195, 197.
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-outline-variant">
+                        <span class="bg-surface-container-highest text-secondary px-2 py-1 font-bold badge uppercase">Baños</span>
+                        <span class="bg-surface-container-highest text-secondary px-2 py-1 font-bold badge uppercase">Wi-Fi</span>
+                        <span class="material-symbols-outlined text-accent accessibility-icon">accessible</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Estaciones intermedias del recorrido Retiro - Tigre -->
+            <div class="col-span-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Estación Lisandro de la Torre -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden" data-rampa="true">
+                    <div class="h-40 relative">
+                        <img alt="L. de la Torre" class="w-full h-full object-cover" src="img/Estaciones/estacion_lisandro_de_la_torre.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">02</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> L. DE LA TORRE</h3>
+                            <span class="material-symbols-outlined text-accent text-sm accessibility-icon">accessible</span>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">VIADUCTO</span>
+                    </div>
+                </article>
+
+                <!-- Estación Belgrano C -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden" data-rampa="true">
+                    <div class="h-40 relative">
+                        <img alt="Belgrano C" class="w-full h-full object-cover" src="img\Estaciones\estacion_belgrano.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">03</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> BELGRANO C</h3>
+                            <span class="material-symbols-outlined text-accent text-sm accessibility-icon">accessible</span>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">VIADUCTO / BARRIO CHINO</span>
+                    </div>
+                </article>
+
+                <!-- Estación Núñez -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden" data-rampa="true">
+                    <div class="h-40 relative">
+                        <img alt="Núñez" class="w-full h-full object-cover" src="img/Estaciones/estacion_nuñez.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">04</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> NÚÑEZ</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">COMUNA 13</span>
+                    </div>
+                </article>
+
+                <!-- Estación Rivadavia -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="Rivadavia" class="w-full h-full object-cover" src="img\Estaciones\estacion_rivadavia.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">05</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> RIVADAVIA</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">COMUNA 13 / GRAL. PAZ</span>
+                    </div>
+                </article>
+
+                <!-- Estación Vicente López -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="VICENTE LÓPEZ" class="w-full h-full object-cover" src="img/Estaciones/estacion_vicente_lopez.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">06</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> VICENTE LÓPEZ</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">PROVINCIA BS. AS.</span>
+                    </div>
+                </article>
+
+                <!-- Estación Olivos -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="OLIVOS" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrmVw8UxQqzw_lQ47lndxzjK0cn-JLdT58V7-bmmDffQwBJLPeZYGFdd3vMe2vz_oG2jo5TiRCNpRwk8CKU9DibkI18UZBJIwN03zwl9SBgl8hCabeJhByl2mlTX26FkPEF76u06-s-1lEiiIZACsaRWc9nbn5QkQFwtaLs9wn4cjXfsH9309ySOYosl51z0snnpLSCdN7PU0wDtpgnF7MpSlXOMKTtzoKzUTsXX-qlbN-uUeXi5tSmOszRLbjuI-BnkowadU7iSs">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">07</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> OLIVOS</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">PUERTO DE OLIVOS</span>
+                    </div>
+                </article>
+
+                <!-- Estación La Lucila -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="LA LUCILA" class="w-full h-full object-cover" src="img/Estaciones/estacion_la_lucila.jpg">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">08</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> LA LUCILA</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">BARRIO RESIDENCIAL</span>
+                    </div>
+                </article>
+
+                <!-- Estación Martínez -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="MARTÍNEZ" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMuOI62zaJxsimPFCKGbu0Cn-hOkbeb1CbaMGIKDnERrof0aK0wqOqulOSQ9VBrd2xZ-vSlrS4nFwc4orttGP23IYoQl5X1_g4h-18zjHobC-PBeQJXGdFfZQfUZTIP5UNCc258FcCoV0QQhz_QC3GAe8yoTGG0ydmJtMRIIYiGFX74YzGagtL9MBo1Z6Xr5WrOt8Tvza0seQUtHwdhURGKCRQritwrcNXjqU0StChQ7ZmiwbAUxkfBWImeEIPcU6fOZw4sUIU6AI">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">09</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> MARTÍNEZ</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">AREA COMERCIAL</span>
+                    </div>
+                </article>
+
+                <!-- Estación Acassuso -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="ACASSUSO" class="w-full h-full object-cover" src="img/Estaciones/estacion_acassuso.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">10</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> ACASSUSO</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">COMUNA SAN ISIDRO</span>
+                    </div>
+                </article>
+
+                <!-- Estación San Isidro -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="SAN ISIDRO" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOiymJYH3nMds_0T252uI07sLSx7XZltJ0mSF1x6K63H4Jrkoa9WZJhN8dW63bVtBENgRg2w5Ae9ifQIGtTXXH9JetKfeThheGpuvrQy5wInZ1lpGqWXc7P_XVxWxhnAK5bOiXUzgemVUm_Eu3OfPh-hEYbImOGjlEzpJWtkEOopqT47hkYa5A2LpC7A38X66R8gdZUCg2tww4oeSJKGOYmffztrRKZVfiyTGSMYEx78pAAWgdH-8gE2OpjwjJlMgAUTWwlOdIoaw">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">11</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> SAN ISIDRO</h3>
+                            <span class="material-symbols-outlined text-accent text-sm accessibility-icon">accessible</span>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">ESTACIÓN CENTRAL</span>
+                    </div>
+                </article>
+
+                <!-- Estación Beccar -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="BECCAR" class="w-full h-full object-cover" src="img/Estaciones/estacion_beccar.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">12</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> BECCAR</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">BARRIO RESIDENCIAL</span>
+                    </div>
+                </article>
+
+                <!-- Estación Victoria -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="VICTORIA" class="w-full h-full object-cover" src="img/Estaciones/estacion_victoria.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">13</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> VICTORIA</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">EMPALME CAPILLA</span>
+                    </div>
+                </article>
+
+                <!-- Sección: Estación Virreyes -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="VIRREYES" class="w-full h-full object-cover" src="img/Estaciones/estacion_virreyes.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">14</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> VIRREYES</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">COMUNA SAN FERNANDO</span>
+                    </div>
+                </article>
+
+                <!-- Estación San Fernando -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="SAN FERNANDO" class="w-full h-full object-cover" src="img/Estaciones/estacion_san_fernando.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">15</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> SAN FERNANDO</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">AREA CÉNTRICA</span>
+                    </div>
+                </article>
+
+                <!-- Estación Carupá -->
+                <article class="station-card bg-surface border-2 border-primary flex flex-col overflow-hidden">
+                    <div class="h-40 relative">
+                        <img alt="CARUPÁ" class="w-full h-full object-cover" src="img/Estaciones/estacion_carupa.png">
+                        <span class="absolute bottom-2 left-2 bg-primary/80 text-white px-2 py-0.5 text-[10px] font-bold">16</span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-black text-sm uppercase"> CARUPÁ</h3>
+                        </div>
+                        <span class="text-[10px] text-secondary font-bold uppercase mb-2">BARRIO CARUPÁ</span>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Tarjeta Estación terminal Tigre -->
+            <article class="col-span-full station-card bg-surface border-2 border-primary flex flex-col-reverse md:flex-row overflow-hidden relative" data-rampa="true">
+                <div class="p-6 md:p-8 flex flex-col justify-between w-full md:w-1/3 border-r-0 md:border-r border-outline-variant">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h2 class="text-4xl font-black uppercase tracking-tight">17. TIGRE</h2>
+                        </div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="bg-primary text-white text-[10px] px-2 py-0.5 font-bold uppercase">PROVINCIA BS. AS.</span>
+                            <span class="bg-surface-container-highest text-secondary text-[10px] px-2 py-0.5 font-bold uppercase">ESTACIÓN CABECERA</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-secondary text-sm md:text-base leading-snug mb-6">
+                            <div class="col-span-2">
+                                <strong>Conexión Colectivos:</strong>
+                                <button type="button" class="appearance-none bg-transparent border-0 p-0 m-0 text-secondary font-inherit" data-colectivos-toggle="tigre-colectivos-box" aria-expanded="false">Ver detalle</button>
+                            </div>
+                        </div>
+                        <div id="tigre-colectivos-box" class="hidden mb-6 rounded-2xl border-2 border-outline bg-surface-container-low px-4 py-3 text-secondary text-sm md:text-base leading-snug">
+                            <strong>Colectivos:</strong> 60, 343, 720, 721, 722.
+                        </div>
+                        <p class="text-secondary text-sm md:text-base leading-relaxed mb-6">Estación Terminal Norte. Portal de acceso al Delta del Paraná, Puerto de Frutos y servicios fluviales.</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-outline-variant">
+                        <span class="bg-surface-container-highest text-secondary px-2 py-1 font-bold badge uppercase">Baños</span>
+                        <span class="bg-surface-container-highest text-secondary px-2 py-1 font-bold badge uppercase">Wi-Fi</span>
+                        <span class="material-symbols-outlined text-accent accessibility-icon">accessible</span>
+                    </div>
+
+                    <button type="button" id="tigre-map-button" class="mt-8 bg-primary text-on-primary px-6 py-4 font-label-bold text-label-bold uppercase w-full text-center hover:bg-primary-container transition-colors shadow-[2px_2px_0px_#727781] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none">
+                        VER MAPA DE LA CIUDAD
+                    </button>
+                    <div id="tigre-city-map" class="hidden mt-6 rounded-2xl overflow-hidden border-2 border-outline shadow-[4px_4px_0px_#727781]">
+                        <iframe class="w-full h-72 md:h-96 tigre-map-iframe" src="https://www.openstreetmap.org/export/embed.html?bbox=-58.5886%2C-34.4362%2C-58.5138%2C-34.3851&amp;layer=mapnik&amp;marker=-34.4090%2C-58.5562" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="bg-surface p-4 text-sm text-on-surface-variant">
+                            Mapa de la ciudad de Tigre, Provincia de Buenos Aires. Arrastra y haz zoom para explorar.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-2/3 h-64 md:h-96 relative">
+                    <img alt="Estación Tigre" class="w-full h-full object-cover" src="img/Estaciones/estacion_tigre.png">
+                    <span class="absolute top-4 right-4 bg-accent text-surface px-2 py-1 font-bold badge uppercase">ETAPA TERMINAL</span>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-primary border-t-2 border-outline mt-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-stack-lg gap-gutter max-w-container-max mx-auto">
+            <!-- Ramal-->
+            <div class="font-headline-sm text-headline-sm font-black text-white uppercase">
+                RAMAL RETIRO - TIGRE
+            </div>
+
+            <div class="flex flex-col items-center md:items-end gap-stack-sm">
+                <!-- Espacio reservado para enlaces -->
+                <nav class="flex flex-wrap justify-center md:justify-end gap-stack-md md:gap-gutter">
+                </nav>
+
+                <!-- Copyright -->
+                <div class="font-label-sm text-label-sm text-white/80">
+                    © Central de Transporte - GRUPO7 - Actividad Educativa
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaSripts para filtros, búsqueda y mapa de Tigre -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const showAllStationsButton = document.getElementById('show-all-stations-button');
+            const subteFilterButton = document.getElementById('subte-filter-button');
+            const accessibleFilterButton = document.getElementById('accessible-filter-button');
+            const subteFilterCount = document.getElementById('subte-filter-count');
+            const accessibleFilterCount = document.getElementById('accessible-filter-count');
+            const mapButton = document.getElementById('tigre-map-button');
+            const mapPanel = document.getElementById('tigre-city-map');
+            const searchInput = document.getElementById('search-input');
+            const searchEmptyState = document.getElementById('search-empty-state');
+            const colectivosToggles = Array.from(document.querySelectorAll('[data-colectivos-toggle]'));
+            const stationCards = Array.from(document.querySelectorAll('article.station-card'));
+            const filterButtons = [showAllStationsButton, subteFilterButton, accessibleFilterButton].filter(Boolean);
+            let activeFilter = 'all';
+            const subteStationCount = stationCards.filter(function (card) {
+                return card.dataset.subte === 'true';
+            }).length;
+            const accessibleStationCount = stationCards.filter(function (card) {
+                return card.dataset.rampa === 'true';
+            }).length;
+
+            // Abre y cierra el menú móvil principal.
+            if (mobileMenuButton && mobileMenu) {
+                const mobileMenuIcon = mobileMenuButton.querySelector('.material-symbols-outlined');
+
+                mobileMenuButton.addEventListener('click', function () {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+
+                    if (mobileMenuIcon) {
+                        mobileMenuIcon.textContent = isHidden ? 'close' : 'menu';
+                    }
+                });
+
+                mobileMenu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.textContent = 'menu';
+                        }
+                    });
+                });
+            }
+
+            // Normaliza texto para hacer búsquedas sin acentos y sin distinción de mayúsculas.
+            function normalizeText(value) {
+                return value
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .trim();
+            }
+
+            // Actualiza el estado visual de los botones y contadores de filtros.
+            function updateFilterButtons() {
+                if (subteFilterCount) {
+                    subteFilterCount.textContent = String(subteStationCount);
+                    subteFilterCount.classList.toggle('hidden', activeFilter !== 'subte');
+                }
+
+                if (accessibleFilterCount) {
+                    accessibleFilterCount.textContent = String(accessibleStationCount);
+                    accessibleFilterCount.classList.toggle('hidden', activeFilter !== 'rampa');
+                }
+
+                filterButtons.forEach(function (button) {
+                    const isActive = (button === showAllStationsButton && activeFilter === 'all') || (button === subteFilterButton && activeFilter === 'subte') || (button === accessibleFilterButton && activeFilter === 'rampa');
+
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+
+                    if (isActive) {
+                        button.classList.add('bg-primary', 'text-surface', 'shadow-[2px_2px_0px_#727781]');
+                        button.classList.remove('bg-transparent', 'text-primary');
+                    } else {
+                        button.classList.remove('bg-primary', 'text-surface', 'shadow-[2px_2px_0px_#727781]');
+                        button.classList.add('bg-transparent', 'text-primary');
+                    }
+                });
+            }
+
+            // Filtra tarjetas por búsqueda, conexión subte o accesibilidad.
+            function filterStations() {
+                if (!searchInput) {
+                    return;
+                }
+
+                const query = normalizeText(searchInput.value);
+                let visibleCount = 0;
+
+                stationCards.forEach(function (card) {
+                    const matchesSearch = query === '' || normalizeText(card.textContent).includes(query);
+                    const matchesSubte = activeFilter !== 'subte' || card.dataset.subte === 'true';
+                    const matchesRampa = activeFilter !== 'rampa' || card.dataset.rampa === 'true';
+                    const matches = matchesSearch && matchesSubte && matchesRampa;
+                    card.classList.toggle('hidden', !matches);
+
+                    if (matches) {
+                        visibleCount += 1;
+                    }
+                });
+
+                if (searchEmptyState) {
+                    searchEmptyState.classList.toggle('hidden', visibleCount > 0);
+                }
+            }
+
+            // Mostrar u ocultar mapa contextual de la ciudad de Tigre.
+            if (mapButton && mapPanel) {
+                mapButton.addEventListener('click', function () {
+                    const isHidden = mapPanel.classList.contains('hidden');
+                    mapPanel.classList.toggle('hidden');
+                    mapButton.textContent = isHidden ? 'OCULTAR MAPA DE LA CIUDAD' : 'VER MAPA DE LA CIUDAD';
+                });
+            }
+
+            // Mostrar u ocultar detalle de líneas de colectivos por estación.
+            colectivosToggles.forEach(function (toggleButton) {
+                const targetId = toggleButton.getAttribute('data-colectivos-toggle');
+                const targetPanel = targetId ? document.getElementById(targetId) : null;
+
+                if (!targetPanel) {
+                    return;
+                }
+
+                toggleButton.addEventListener('click', function () {
+                    const isHidden = targetPanel.classList.contains('hidden');
+                    targetPanel.classList.toggle('hidden');
+                    toggleButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+                });
+            });
+
+            // Restablece listado completo y limpia búsqueda.
+            if (showAllStationsButton && searchInput) {
+                showAllStationsButton.addEventListener('click', function () {
+                    activeFilter = 'all';
+                    searchInput.value = '';
+                    filterStations();
+                    updateFilterButtons();
+                    searchInput.focus();
+                });
+            }
+
+            // Activa filtro por estaciones con conexión de subte.
+            if (subteFilterButton) {
+                subteFilterButton.addEventListener('click', function () {
+                    activeFilter = 'subte';
+                    filterStations();
+                    updateFilterButtons();
+                });
+            }
+
+            // Activa filtro por estaciones accesibles.
+            if (accessibleFilterButton) {
+                accessibleFilterButton.addEventListener('click', function () {
+                    activeFilter = 'rampa';
+                    filterStations();
+                    updateFilterButtons();
+                });
+            }
+
+            // Ejecuta búsqueda en tiempo real y deja estado inicial cargado.
+            if (searchInput) {
+                searchInput.addEventListener('input', filterStations);
+                filterStations();
+                updateFilterButtons();
+            }
+        });
+    </script>
+</body>
+</html>
+
